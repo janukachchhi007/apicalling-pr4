@@ -18,6 +18,7 @@
 		D3B1C17A29D16F7D00CF9872 /* apicalling_pr4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1C17929D16F7D00CF9872 /* apicalling_pr4Tests.swift */; };
 		D3B1C18429D16F7D00CF9872 /* apicalling_pr4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1C18329D16F7D00CF9872 /* apicalling_pr4UITests.swift */; };
 		D3B1C18629D16F7D00CF9872 /* apicalling_pr4UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1C18529D16F7D00CF9872 /* apicalling_pr4UITestsLaunchTests.swift */; };
+		D3B1F47029D4108E009EC0D3 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1F46F29D4108E009EC0D3 /* MyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D3B1C17F29D16F7D00CF9872 /* apicalling pr4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "apicalling pr4UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B1C18329D16F7D00CF9872 /* apicalling_pr4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apicalling_pr4UITests.swift; sourceTree = "<group>"; };
 		D3B1C18529D16F7D00CF9872 /* apicalling_pr4UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apicalling_pr4UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D3B1F46F29D4108E009EC0D3 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		D3B1C15629D16F7B00CF9872 = {
 			isa = PBXGroup;
 			children = (
+				D3B1F46F29D4108E009EC0D3 /* MyViewController.swift */,
 				D3B1C16129D16F7B00CF9872 /* apicalling pr4 */,
 				D3B1C17829D16F7D00CF9872 /* apicalling pr4Tests */,
 				D3B1C18229D16F7D00CF9872 /* apicalling pr4UITests */,
@@ -268,6 +271,7 @@
 				D3676D4D29D170BF00CD8DC9 /* File.swift in Sources */,
 				D3B1C16329D16F7B00CF9872 /* AppDelegate.swift in Sources */,
 				D3676D4F29D17A7400CD8DC9 /* MyTableViewCell.swift in Sources */,
+				D3B1F47029D4108E009EC0D3 /* MyViewController.swift in Sources */,
 				D3B1C16529D16F7B00CF9872 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -52,12 +52,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        naviget(flogsimage: stringToimg(link:  arr[indexPath.row].flags.png)! ,ComanName: arr[indexPath.row].name.common, OfficalName: arr[indexPath.row].name.official)
+    }
     
     func stringToimg(link:String) -> UIImage?
     {
         let url1 = URL(string: link)
         let data = try? Data(contentsOf: url1! as URL)
         return UIImage(data: data!)
+    }
+    func naviget(flogsimage: UIImage,ComanName: String,OfficalName : String)
+    {
+        let navigation = storyboard? .instantiateViewController(withIdentifier: "MyViewController") as! MyViewController
+        navigation.image = flogsimage
+        navigation.officalName = OfficalName
+        navigation.commanName = ComanName
+        navigationController?.pushViewController(navigation, animated: true)
     }
 
 }

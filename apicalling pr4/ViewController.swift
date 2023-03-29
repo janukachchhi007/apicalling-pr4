@@ -7,11 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
     @IBOutlet weak var countryData: UITableView!
     
+    @IBOutlet weak var serchBar: UISearchBar!
     var arr : [WelcomeElement] = []
+    var arr2 : [WelcomeElement] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 if error == nil
                 {
                     self.arr = try JSONDecoder().decode([WelcomeElement].self, from: data!)
+                    self.arr2 =  self.arr
+                    
                     DispatchQueue.main.async {
                         self.countryData.reloadData()
                     }
@@ -53,7 +57,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return 200
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        naviget(flogsimage: stringToimg(link:  arr[indexPath.row].flags.png)! ,ComanName: arr[indexPath.row].name.common, OfficalName: arr[indexPath.row].name.official)
+        naviget(flogsimage: stringToimg(link:  arr[indexPath.row].flags.png)! ,ComanName: arr[indexPath.row].name.common, populationName: arr[indexPath.row].population ,image: stringToimg(link: arr[indexPath.row].coatOfArms.png!)!)
     }
     
     func stringToimg(link:String) -> UIImage?
@@ -62,14 +66,30 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let data = try? Data(contentsOf: url1! as URL)
         return UIImage(data: data!)
     }
-    func naviget(flogsimage: UIImage,ComanName: String,OfficalName : String)
+   
+    func naviget(flogsimage: UIImage,ComanName: String,populationName : Int , image : UIImage)
     {
         let navigation = storyboard? .instantiateViewController(withIdentifier: "MyViewController") as! MyViewController
         navigation.image = flogsimage
-        navigation.officalName = OfficalName
+     //   navigation.officalName = OfficalName
         navigation.commanName = ComanName
+        navigation.population = populationName
+        navigation.coatsOfArms = image
         navigationController?.pushViewController(navigation, animated: true)
     }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == ""
+        {
+            arr = arr2
+        }
+        else{
+            arr = arr2.filter({ i in
+                return i.name.common.contains(searchBar.text!)
+            })
+        }
+        countryData.reloadData()
+    }
+    
 
 }
 
